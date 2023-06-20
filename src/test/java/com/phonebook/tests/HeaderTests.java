@@ -7,21 +7,22 @@ import org.testng.annotations.Test;
 public class HeaderTests extends TestBase {
     @Test
     public void homeLinkPresentTest() {
-        isElementPresent(By.xpath("//a[text()='HOME']"));
-        Assert.assertTrue(isElementPresent(By.xpath("//a[text()='HOME']")));
+        Assert.assertTrue(app.isHomeLinkPresent());
     }
+
     public void aboutLinkPresentTest() {
-        isElementPresent(By.xpath("//a[text()='ABOUT']"));
-        Assert.assertTrue(isElementPresent(By.xpath("//a[text()='ABOUT']")));
+        Assert.assertTrue(app.isAboutLinkPresent());
     }
+
     public void loginLinkPresentTest() {
-        isElementPresent(By.xpath("//a[text()='LOGIN']"));
-        Assert.assertTrue(isElementPresent(By.xpath("//a[text()='LOGIN']")));
+       Assert.assertTrue(isLoginLinkPresent());
+    }
+
+    public boolean isLoginLinkPresent() {
+        return app.isElementPresent(By.xpath("//a[text()='LOGIN']"));
     }
 
     public void titleLinkPresentTest() {
-        isElementPresent(By.xpath("//h1[text()='PHONEBOOK']"));
-        Assert.assertTrue(isElementPresent(By.xpath("//h1[text()='PHONEBOOK']")));
+        Assert.assertTrue(app.isLogoPresent());
     }
-
 }

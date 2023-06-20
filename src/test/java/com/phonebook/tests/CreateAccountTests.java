@@ -1,6 +1,6 @@
 package com.phonebook.tests;
 
-import org.openqa.selenium.By;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -8,31 +8,16 @@ public class CreateAccountTests extends TestBase {
     //precondition: user should be logged out
     @BeforeMethod
     public void ensurePrecondition() {
-        if (!isElementPresent(By.xpath("//a[.='LOGIN']"))) {
-            driver.findElement(By.xpath("//button[.='Sign Out']")).click();
+        if (!app.isLoginLinkPresent()) {
+            app.clickOnSignOutButton();
         }
-        //click login field
-        driver.findElement(By.xpath("//a[.='LOGIN']")).click();
+        app.clickOnLoginLink();
     }
 
     @Test
-    public void newUserRegistrationPositiveTest() {
-        //enter password field
-        driver.findElement(By.cssSelector("[placeholder='Password']")).click();
-        driver.findElement(By.cssSelector("[placeholder='Password']")).clear();
-        driver.findElement(By.cssSelector("[placeholder='Password']")).sendKeys("dinQ123_");
-
-
-        //enter email field
-        driver.findElement(By.cssSelector("[placeholder='Email']")).click();
-        driver.findElement(By.cssSelector("[placeholder='Email']")).clear();
-        driver.findElement(By.cssSelector("[placeholder='Email']")).sendKeys("din@gmail.com");
-        //click on Registration
-
-        //assert user logged in(check Sign out button displayed)
-
+    public void existedUserRegistrationNegativeTest() {
+        app.fillLoginRegistrationForm(new User().setEmail("din@gmail.com").setPassword("dinQ1234$"));
+        app.clickOnRegistrationButton();
+        Assert.assertTrue(app.isAlertPresent());
     }
-
-
-
 }
