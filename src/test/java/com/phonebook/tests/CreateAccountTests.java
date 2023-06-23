@@ -8,16 +8,16 @@ public class CreateAccountTests extends TestBase {
     //precondition: user should be logged out
     @BeforeMethod
     public void ensurePrecondition() {
-        if (!app.isLoginLinkPresent()) {
-            app.clickOnSignOutButton();
+        if (!app.getHeader().isLoginLinkPresent()) {
+            app.getHeader().clickOnSignOutButton();
         }
-        app.clickOnLoginLink();
+        app.getHeader().clickOnLoginLink();
     }
 
     @Test
     public void existedUserRegistrationNegativeTest() {
-        app.fillLoginRegistrationForm(new User().setEmail("din@gmail.com").setPassword("dinQ1234$"));
-        app.clickOnRegistrationButton();
-        Assert.assertTrue(app.isAlertPresent());
+        app.getUser().fillLoginRegistrationForm(new User().setEmail("din@gmail.com").setPassword("dinQ1234$"));
+        app.getUser().clickOnRegistrationButton();
+        Assert.assertTrue(app.getUser().isAlertPresent());
     }
 }

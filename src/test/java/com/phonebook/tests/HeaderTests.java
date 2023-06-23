@@ -7,11 +7,11 @@ import org.testng.annotations.Test;
 public class HeaderTests extends TestBase {
     @Test
     public void homeLinkPresentTest() {
-        Assert.assertTrue(app.isHomeLinkPresent());
+        Assert.assertTrue(app.getHeader().isHomeLinkPresent());
     }
 
     public void aboutLinkPresentTest() {
-        Assert.assertTrue(app.isAboutLinkPresent());
+        Assert.assertTrue(app.getHeader().isAboutLinkPresent());
     }
 
     public void loginLinkPresentTest() {
@@ -19,10 +19,10 @@ public class HeaderTests extends TestBase {
     }
 
     public boolean isLoginLinkPresent() {
-        return app.isElementPresent(By.xpath("//a[text()='LOGIN']"));
+        return app.getHeader().isElementPresent(By.xpath("//a[text()='LOGIN']"));
     }
 
     public void titleLinkPresentTest() {
-        Assert.assertTrue(app.isLogoPresent());
+        Assert.assertTrue(app.getHeader().isLogoPresent());
     }
 }

@@ -8,28 +8,35 @@ import org.testng.annotations.Test;
 public class CreateContactsTests extends TestBase {
     @BeforeMethod
     public void ensurePrecondition() {
-        if (!app.isLoginLinkPresent()) {
-            app.clickOnSignOutButton();
+        if (!app.getHeader().isLoginLinkPresent()) {
+            app.getHeader().clickOnSignOutButton();
         }
-        app.clickOnLoginLink();
-        app.clickOnLoginLink();
-        app.fillLoginRegistrationForm(new User().setEmail("din@gmail.com").setPassword("dinQ1234$"));
-        app.clickOnLoginButton();
+        app.getHeader().clickOnLoginLink();
+        app.getUser().fillLoginRegistrationForm(new User().setEmail("din@gmail.com").setPassword("dinQ1234$"));
+        app.getUser().clickOnLoginButton();
     }
 
     @Test
     public void addContactsPositiveTest() {
-        app.clickOnAddLink();
+        app.getHeader().clickOnAddLink();
 //        int i = (int) (System.currentTimeMillis()/1000)/3600;
-        app.fillAddContactForm("Adam", "Karl", "1234567890", "adam@gakds.com", "Leipzig", "fdhdgnjhmghm");
-        app.clickOnSaveButton();
-        Assert.assertTrue(app.isContactCreated("Adam"));
+        app.getContact().fillAddContactForm(new Contact()
+                .setName("Adam")
+                .setSurname("Karl")
+                .setPhone("1234567890")
+                .setEmail("adam@gakds.com")
+                .setAddress("Leipzig")
+                .setDesc("fdhdgnjhmghm"));
+        app.getContact().clickOnSaveButton();
+        Assert.assertTrue(app.getContact().isContactCreated("Adam"));
     }
 
-    @AfterMethod
-    public void removeContact() {
-        app.clickOnContactField();
-        app.clickOnRemoveButton();
-    }
+//    @AfterMethod
+//    public void removeContact() {
+//        if(!app.getContact().isContactListIsEmpty()) {
+//            app.getContact().clickOnContactField();
+//            app.getContact().clickOnRemoveButton();
+//        }
+//    }
 
 }
