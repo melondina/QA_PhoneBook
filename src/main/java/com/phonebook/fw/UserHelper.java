@@ -1,5 +1,6 @@
-package com.phonebook.tests;
+package com.phonebook.fw;
 
+import com.phonebook.model.User;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -19,5 +20,12 @@ public class UserHelper extends BaseHelper {
 
     public void clickOnLoginButton() {
         click(By.name("login"));
+    }
+
+    public void login() {
+        fillLoginRegistrationForm(new User()
+                .setEmail("din@gmail.com")
+                .setPassword("dinQ1234$"));
+        clickOnLoginButton();
     }
 }

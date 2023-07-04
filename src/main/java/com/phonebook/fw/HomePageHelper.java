@@ -1,4 +1,4 @@
-package com.phonebook.tests;
+package com.phonebook.fw;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -9,7 +9,7 @@ public class HomePageHelper extends BaseHelper {
     }
 
     public boolean isHomeComponentPresent() {
-        return  isElementPresent(By.xpath("//h1[text()='Home Component']"));
+        return  isElementPresent(By.xpath("//h2[text()='Home Component']"));
     }
 
     public boolean isHomeComponentPresent1() {

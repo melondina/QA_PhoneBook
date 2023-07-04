@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.phonebook.tests.CreateAccountTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-07-04T11:51:09" hostname="DESKTOP-3GCK6CC" time="0.967">
+  <properties/>
+  <testcase name="existedUserRegistrationNegativeTest" classname="com.phonebook.tests.CreateAccountTests" time="0.967"/>
+  <system-out><![CDATA[13:50:59.158 [Test worker] INFO  com.phonebook.tests.TestBase -- Start testexistedUserRegistrationNegativeTest with data: []
+13:51:10.285 [Test worker] INFO  com.phonebook.tests.TestBase -- PASSED: existedUserRegistrationNegativeTest
+13:51:10.286 [Test worker] INFO  com.phonebook.tests.TestBase -- Stop test
+13:51:10.289 [Test worker] INFO  com.phonebook.tests.TestBase -- ==========================
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
